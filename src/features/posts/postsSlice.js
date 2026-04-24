@@ -20,10 +20,8 @@ const postsSlice = createSlice({
     },
 
     postDeleted: {
-      reducer: (state, action) => {
-        state = state.filter((st) => st.id !== action.payload.id);
-      },
-
+      reducer: (state, action) =>
+        state.filter((st) => st.id !== action.payload.id),
       prepare: ({ id }) => {
         return {
           payload: {

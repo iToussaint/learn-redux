@@ -10,7 +10,12 @@ function Posts() {
       <h1 className="text-3xl">POSTS</h1>
 
       {posts.map((post) => (
-        <Post key={post.id} title={post.title} content={post.content} />
+        <Post
+          key={post.id}
+          id={post.id}
+          title={post.title}
+          content={post.content}
+        />
       ))}
     </div>
   );
