@@ -1,10 +1,10 @@
 import "./App.css";
-import Counter from "./features/counter/Counter";
+import Posts from "./features/posts/Posts";
 
 function App() {
   return (
-    <div>
-      <Counter />
+    <div className="p-10">
+      <Posts />
     </div>
   );
 }
