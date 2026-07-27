@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { count } from "console";
 
 const initialState = {
   count: 0,
