@@ -14,18 +14,43 @@ const postsSlice = createSlice({
             id: nanoid(),
             title,
             content,
+            reactions: {
+              "🔥": 0,
+              "❤️": 5,
+              "🍻": 0,
+              "👂": 0,
+              "🙏": 0,
+            },
           },
         };
       },
     },
 
     postDeleted: {
-      reducer: (state, action) =>
-        state.filter((st) => st.id !== action.payload.id),
+      reducer(state, action) {
+        return state.filter((st) => st.id !== action.payload.id);
+      },
       prepare: ({ id }) => {
         return {
           payload: {
             id,
+          },
+        };
+      },
+    },
+
+    postReacted: {
+      reducer(state, action) {
+        state.find((post) => post.id === action.payload.postId).reactions[
+          action.payload.emoji
+        ]++;
+      },
+
+      prepare: ({ postId, emoji }) => {
+        return {
+          payload: {
+            postId,
+            emoji,
           },
         };
       },

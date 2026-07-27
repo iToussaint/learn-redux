@@ -15,6 +15,7 @@ function Posts() {
           id={post.id}
           title={post.title}
           content={post.content}
+          reactions={post.reactions}
         />
       ))}
     </div>

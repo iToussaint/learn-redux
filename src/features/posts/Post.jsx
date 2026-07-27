@@ -1,13 +1,14 @@
 import { useDispatch } from "react-redux";
 import { postsActions } from "./postsSlice";
+import Reaction from "./Reaction";
+import Reactions from "./Reactions";
 
-function Post({ id, title, content }) {
+function Post({ id, title, content, reactions }) {
   const dispatch = useDispatch();
   function deletePost() {
-    console.log(id);
     dispatch(postsActions.postDeleted({ id }));
   }
-  console.log("idddd", id);
+
   return (
     <div className="bg-green-600 p-4 flex flex-col gap-6 rounded-md">
       <h1 className="text-2xl font-bold">{title}</h1>
@@ -19,6 +20,8 @@ function Post({ id, title, content }) {
       >
         delete
       </button>
+
+      <Reactions reactions={ reactions } postId={id} />
     </div>
   );
 }
